@@ -30,7 +30,7 @@ export default class TabBar {
     }
 
     static async validateTabIsFoused():Promise<boolean|void> {
-        return await ($('~Home')).isEnabled()
+        return await ($('~Home')).isSelected()
    }
 
    static async validateFormTabAvailability():Promise<boolean|void> {

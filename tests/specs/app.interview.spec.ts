@@ -5,12 +5,12 @@ import LoginScreen from '../screenobjects/LoginScreen';
 describe('WebdriverIO and Appium, when interacting with a login form,', () => {
     beforeEach(async () => {
         await TabBar.waitForTabBarShown();
-        await TabBar.openLogin();
-        await LoginScreen.waitForIsShown(true);
+       
     });
 
     it('Validate the default selection of the tab',async ()=>{
         await TabBar.validateTabIsFoused()
+        await expect(await TabBar.validateTabIsFoused()).toEqual(true)
         
     })
 
@@ -20,6 +20,8 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
     })
 
     it('Validate the Input behaviour is working as intended', async () => {
+        await TabBar.openLogin();
+        await LoginScreen.waitForIsShown(true);
         await LoginScreen.setUserName({ username: 'test@webdriver.io' });
         await LoginScreen.setPassword({ password: 'Test1234!' });
 
