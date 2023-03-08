@@ -19,6 +19,12 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
         await expect(await TabBar.validateIsFormTabClickable()).toEqual("true")
     })
 
+    it('Validate the color change on the selection of the form tab',async ()=>{
+        await TabBar.openForms()
+        await expect(await TabBar.validateIsFormTabClickable()).toEqual("true")
+    })
+
+
     it('Validate the Input behaviour is working as intended', async () => {
         await TabBar.openLogin();
         await LoginScreen.waitForIsShown(true);
