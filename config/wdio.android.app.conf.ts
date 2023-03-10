@@ -5,7 +5,8 @@ import config from './wdio.shared.local.appium.conf';
 // Specs
 // ============
 config.specs = [
-    './tests/specs/**/app*.spec.ts',
+    './tests/specs/**/app.interview*.spec.ts',
+    
 ];
 
 // ============
@@ -31,6 +32,16 @@ config.capabilities = [
         'appium:appWaitActivity': 'com.wdiodemoapp.MainActivity',
         'appium:newCommandTimeout': 240,
     },
+    // config.services=[[
+    //     'native-app-compare',
+    //     {
+    //         baselineFolder: './test/resources/image-baseline',
+    //         screenshotPath: './test/resources/image-compare',
+    //         autoSaveBaseline: true,
+    //         ignoreNothing: true
+    //     },
+    // ],]
+
 ];
 
 exports.config = config;

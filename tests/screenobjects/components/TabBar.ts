@@ -43,6 +43,6 @@ export default class TabBar {
 
 static async getColor():Promise<boolean|void> {
    let ele = await ( $('~Forms'))
-    return await ele.getCSSProperty('background-color')
+    return await ele.getCSSProperty('color')
 }
 }

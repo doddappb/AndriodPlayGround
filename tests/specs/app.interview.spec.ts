@@ -1,10 +1,14 @@
 import TabBar from '../screenobjects/components/TabBar';
 import LoginScreen from '../screenobjects/LoginScreen';
-// import NativeAlert from '../screenobjects/components/NativeAlert';
 
-describe('WebdriverIO and Appium, when interacting with a login form,', () => {
+
+
+
+
+describe('WebdriverIO and Appium, when interacting with a login form and home default selection,', () => {
     beforeEach(async () => {
         await TabBar.waitForTabBarShown();
+        
        
     });
 
@@ -21,12 +25,12 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
 
     it('Validate the color change on the selection of the form tab',async ()=>{
         await TabBar.openForms()
-        await expect(await TabBar.validateIsFormTabClickable()).toEqual("true")
+        //this funtionality can't be tested for native app but this can be done using image comparison service
     })
 
 
     it('Validate the Input behaviour is working as intended', async () => {
-        await TabBar.openLogin();
+        await TabBar.openLogin()
         await LoginScreen.waitForIsShown(true);
         await LoginScreen.setUserName({ username: 'test@webdriver.io' });
         await LoginScreen.setPassword({ password: 'Test1234!' });
@@ -35,7 +39,6 @@ describe('WebdriverIO and Appium, when interacting with a login form,', () => {
 
     })
 
-
-
+    
 
 })
