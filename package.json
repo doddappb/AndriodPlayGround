@@ -16,7 +16,7 @@
         "ios.browser": "wdio config/wdio.ios.browser.conf.ts",
         "lint": "eslint config tests",
         "app.server": "appium",
-        "android":"local.exercise"
+        "android": "local.exercise"
     },
     "repository": {
         "type": "git",
@@ -47,8 +47,10 @@
         "@wdio/mocha-framework": "^7.19.7",
         "@wdio/sauce-service": "^7.19.7",
         "@wdio/spec-reporter": "^7.19.7",
+        "chai": "^4.3.7",
         "eslint-plugin-wdio": "^7.19.4",
         "ts-node": "^10.8.0",
-        "typescript": "^4.6.4"
+        "typescript": "^4.6.4",
+        "wdio-native-app-compare-service": "^2.1.0"
     }
 }
