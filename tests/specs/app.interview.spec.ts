@@ -4,11 +4,8 @@ import HomePage from '../pageobjects/home.page'
 import { expect } from 'chai'
 
 
-
-
-
 describe('WebdriverIO and Appium, when interacting with a login form and home default selection,', () => {
-    
+
     it('Validate the default selection of the tab', async () => {
         await HomePage.verifyHomeButtonIsEnabled();
         expect(await HomePage.verifyDefaultSelectedBtn()).to.be.equals("Home"); //verifying the default tab as Home
@@ -32,17 +29,17 @@ describe('WebdriverIO and Appium, when interacting with a login form and home de
         await FormPage.enterTextInput("Mobile Automation");
         expect(await FormPage.getInputResultValue()).equals("Mobile Automation");
         await FormPage.clearTextInput();
-        await FormPage.hideKeyboard();   
+        await FormPage.hideKeyboard();
     })
 
 
     it('Validate that picker element is working and it has 3 options to choose from.', async () => {
 
         expect(await FormPage.getValidPickerOptions()).equals(3);
-        await FormPage.verifyPickerFunctionality(); 
+        await FormPage.verifyPickerFunctionality();
     })
     it('Validate that all options from picker elements are visible within the screen', async () => {
-        expect(await FormPage.verifyPickerElementsWithinScreen()); 
+        expect(await FormPage.verifyPickerElementsWithinScreen());
 
     })
 
@@ -76,13 +73,8 @@ describe('WebdriverIO and Appium, when interacting with a login form and home de
 
     it('Validate that keyboard is available to provide input in the text field', async () => {
         expect(await FormPage.openKeyboard()).to.be.true;
+        expect(await FormPage.hideKeyboard()).to.be.false;
     })
-
-    it('Validate that keyboard is not available to provide input in the text field', async () => {
-       expect(await FormPage.hideKeyboard()).to.be.false;
-    })
-
-
 
 
 
