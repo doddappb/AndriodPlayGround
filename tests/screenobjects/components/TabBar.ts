@@ -13,6 +13,7 @@ export default class TabBar {
 
     static async openForms () {
         await $('~Forms').click();
+        
     }
 
     static async openSwipe () {

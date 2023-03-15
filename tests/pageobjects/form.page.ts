@@ -16,26 +16,26 @@ class FormPage extends Page {
 get dropdownValues() {
         return $$('//*[@class="android.widget.CheckedTextView"]');}
 
-    get inActiveBtn() {
-        return $('~button-Inactive');
-    }
-    get activeBtn() {
-        return $('~button-Active');
-    }
-
-    get alertTitle() {
-        return $('#select_dialog_listview')
-    }
-
-    get alertOkBtn() {
-        return $('#button1')
-    }
-    get alertCancelBtn() {
-        return $('#button2')
-    }
-    get alertAskMeLaterBtn() {
-        return $('#button3')
-    }
+        get inActiveBtn() {
+            return $('~button-Inactive');
+        }
+        get activeBtn() {
+            return $('~button-Active');
+        }
+    
+        get alertTitle() {
+            return $('#alertTitle')
+        }
+    
+        get alertOkBtn() {
+            return $('#button1')
+        }
+        get alertCancelBtn() {
+            return $('#button2')
+        }
+        get alertAskMeLaterBtn() {
+            return $('#button3')
+        }
     get switchToggle() {
         return $('~switch');
     }
@@ -137,25 +137,7 @@ get dropdownValues() {
                 await this.clickPickerDropDown();
         }
     }
-
-    /**
-     * Method to click the inactive button
-     */
-    async clickInactiveButton() {
-        await this.dropdownValues.then(async (eles)=>{
-            for (let i=0;i<eles.length;i++){
-                let isChecked=await eles[i].getAttribute("checked")
-                if(isChecked.includes("true")){
-                    console.log("uuuuuuuuuuuuuuuuuu")
-                        await this.waitAndClick(await eles[i]);
-                        await this.waitForElement();
-                        // break;
-                    }
-            }
-              
-        })
-    }
-
+ 
     /**
      * Method to check the popUp display
      */
@@ -163,25 +145,21 @@ get dropdownValues() {
         return await this.alertTitle.isDisplayed();
     }
 
+     /**
+     * Method to click the inactive button
+     */
+
+    async clickInactiveButton() {
+        await this.waitAndClick(await this.inActiveBtn);
+    }
+
     /**
      * Method to click Active button
      */
 
     async clickActiveButton() {
-        await this.dropdownValues.then(async (eles)=>{
-            for (let i=0;i<eles.length;i++){
-                let isChecked=await eles[i].getAttribute("checked")
-                console.log("isChecked")
-                console.log(isChecked)
-                if(isChecked.includes("false")){
-                    console.log("ppppppppppppppppppppppppppppp")
-                        await this.waitAndClick(eles[i]);
-                        await this.waitForElement();
-                        break;
-                    }
-            }
-              
-        })
+        await this.waitAndClick(this.activeBtn);
+        await this.waitForElement();
     }
     async clickOkButton() {
         await this.waitAndClick(this.alertOkBtn);
