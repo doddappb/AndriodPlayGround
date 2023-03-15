@@ -21,9 +21,9 @@ describe('WebdriverIO and Appium, when interacting with a login form and home de
 
     it('Validate the color change on the selection of the form tab', async () => {
 
-        await HomePage.compareFormButtonColorAfterClick("formButton");// Creates a baseline image, if not available
+        await HomePage.compareFormButtonColorAfterClick("formButton");
         await HomePage.verifyClickFormButton();
-        expect(await HomePage.compareFormButtonColorAfterClick("formButton")).to.be.false;// Compares with baseline image after click
+        expect(await HomePage.compareFormButtonColorAfterClick("formButton")).to.be.false;
     })
 
 
